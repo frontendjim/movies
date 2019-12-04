@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/
@@ -39,6 +39,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Muli', sans-serif;
     font-size: 16px;
     font-size: 1.6rem;
+    font-weight: 300;
   }
 
   :focus {
@@ -111,12 +112,6 @@ export const GlobalStyles = createGlobalStyle`
 
   [hidden] {
       display: none;
-  }
-
-  html {
-      font-size: 100%;
-      -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
   }
 
   a:focus {
@@ -263,4 +258,10 @@ export const GlobalStyles = createGlobalStyle`
       color: #000;
       padding: 0.2em 0;
   }
+`;
+
+export const Container = styled.main`
+  display: block;
+  padding: 4rem 0 0;
+  padding-left: 30rem;
 `;

@@ -1,13 +1,18 @@
 import React from 'react';
 
-import { GlobalStyles } from './App.styles';
+// components
+import Masthead from './components/masthead';
+import MovieList from './components/movieList';
+
+import { GlobalStyles, Container } from './App.styles';
 
 function App() {
   return (
-    <div className="App">
+    <Container>
       <GlobalStyles />
-      <h1>Movies</h1>
-    </div>
+      <Masthead />
+      <MovieList />
+    </Container>
   );
 }
 
