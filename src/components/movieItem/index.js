@@ -18,7 +18,7 @@ const MovieItem = ({ name, imageUrl, rating, genres, ...props }) => {
     <Container image={`${imageBase}${imageUrl}`} {...props}>
       <Overlay className="overlay" />
       <Content>
-        <Name>{name}</Name>
+        <Name title={name}>{name}</Name>
         {genres.length > 0 && (
           <Genres>
             {genres.map(({ name, id }) => (

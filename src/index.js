@@ -4,11 +4,15 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// contexts
 import GenreProvider from './state/genres';
+import FilterProvider from './state/filters';
 
 ReactDOM.render(
   <GenreProvider>
-    <App />
+    <FilterProvider>
+      <App />
+    </FilterProvider>
   </GenreProvider>,
   document.getElementById('root')
 );

@@ -1,4 +1,5 @@
 import React, { useReducer, useEffect, useContext, useMemo } from 'react';
+import { intersection } from 'lodash/array';
 
 // components
 import MovieItem from '../movieItem';
@@ -6,6 +7,7 @@ import MovieItem from '../movieItem';
 // state
 import reducer, { initialState, actionTypes } from '../../state/movies';
 import { GenreContext } from '../../state/genres';
+import { FilterContext } from '../../state/filters';
 
 // utils
 import { api } from '../../utils/api';
@@ -15,6 +17,7 @@ import { Container } from './movieList.styles';
 const MovieList = () => {
   const [{ list, loading }, dispatch] = useReducer(reducer, initialState);
   const { genres } = useContext(GenreContext);
+  const { minRating, selectedGenres } = useContext(FilterContext);
 
   const fetchMovies = async () => {
     dispatch({ type: actionTypes.FETCH_MOVIES });
@@ -29,22 +32,27 @@ const MovieList = () => {
   const getFormattedMovies = useMemo(() => {
     if (loading || !genres.length) return [];
 
-    console.log(list);
+    return list
+      .filter(movie => {
+        // filter by genres
+        const commonGenres = intersection(selectedGenres, movie.genre_ids);
 
-    return list.map(movie => {
-      const populatedGenres = genres.filter(genre =>
-        movie.genre_ids.includes(genre.id)
-      );
+        return commonGenres.length === selectedGenres.length;
+      })
+      .filter(movie => movie.vote_average >= minRating)
+      .map(movie => {
+        // populate genre details for render
+        const populatedGenres = genres.filter(genre =>
+          movie.genre_ids.includes(genre.id)
+        );
 
-      return { ...movie, populatedGenres };
-    });
-  }, [genres, list, loading]);
+        return { ...movie, populatedGenres };
+      });
+  }, [genres, list, loading, minRating, selectedGenres]);
 
   useEffect(() => {
     fetchMovies();
   }, []);
-
-  console.log(getFormattedMovies);
 
   return (
     <Container>

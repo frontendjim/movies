@@ -13,9 +13,10 @@ export const Container = styled.div`
   font-size: 1.8rem;
   font-weight: 700;
   justify-content: center;
-  height: 6rem;
-  line-height: 1;
-  width: 6rem;
+  height: 7rem;
+  line-height: 7rem;
+  text-shadow: 1px 1px 0px #fff;
+  width: 7rem;
 
   span {
     position: relative;

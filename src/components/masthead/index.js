@@ -1,5 +1,8 @@
 import React from 'react';
 
+// components
+import Filters from '../filters';
+
 import { Container, Logo, LogoSmall } from './masthead.styles';
 
 const Masthead = () => {
@@ -8,6 +11,7 @@ const Masthead = () => {
       <Logo>
         Movie <LogoSmall>Machine</LogoSmall>
       </Logo>
+      <Filters />
     </Container>
   );
 };

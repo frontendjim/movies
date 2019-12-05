@@ -12,20 +12,22 @@ export const Container = styled.div`
   color: #fff;
   height: 20vw;
   margin: 0 2rem 4rem;
+  border: 1px solid #666;
   overflow: hidden;
   padding: 3rem;
   position: relative;
 
   @media (min-width: 1000px) {
-    flex: 1 1 calc(50% - 4rem);
+    flex: 0 0 calc(50% - 4rem);
   }
 
   @media (min-width: 1300px) {
-    flex: 1 1 calc(33.333% - 4rem);
+    flex: 0 0 calc(33.333% - 4rem);
   }
 
   &:hover {
     .overlay {
+      border-color: #fff;
       opacity: 0.2;
     }
   }
@@ -51,6 +53,7 @@ export const Content = styled.div`
 export const Name = styled.h2`
   font-size: 2vw;
   font-weight: 700;
+  line-height: 1.5;
   margin: 0 0 1.5rem;
   overflow: hidden;
   padding: 0;

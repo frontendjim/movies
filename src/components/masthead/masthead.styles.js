@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   background-color: #313639;
-  box-shadow: 4px 0px 5px 0px rgba(204, 204, 204, 1);
+  color: #fff;
   height: 100%;
   left: 0;
   padding: 3rem 2rem;
@@ -12,8 +12,8 @@ export const Container = styled.header`
 `;
 
 export const Logo = styled.div`
-  color: #fff;
   font-size: 5rem;
+  margin: 0 0 5rem;
   position: relative;
 
   &:after {

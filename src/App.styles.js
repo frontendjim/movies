@@ -36,6 +36,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
+    background-color: #000;
     font-family: 'Muli', sans-serif;
     font-size: 16px;
     font-size: 1.6rem;

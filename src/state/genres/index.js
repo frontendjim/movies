@@ -11,7 +11,6 @@ export default ({ children }) => {
   const fetchGenres = async () => {
     const { data } = await api.get('/genre/movie/list');
 
-    console.log(data.genres);
     updateGenres(data.genres);
   };
 
