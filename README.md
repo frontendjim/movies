@@ -1,4 +1,4 @@
-# VFCrypt application
+# Movies application
 
 ## Highlights
 
